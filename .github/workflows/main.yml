@@ -21,6 +21,7 @@ jobs:
       
       # Apply Coderrect Scanner
       - name: Coderrect Scan
-        uses: coderrect-inc/coderrect-github-action@v0.4
+        uses: coderrect-inc/coderrect-github-action@v0.5
         with:
           buildCommand: make -s
+          exit0: true
