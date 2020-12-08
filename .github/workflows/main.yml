@@ -28,12 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Install cmake
         run: |
-          sudo apt update -y
-          sudo apt install -y cmake
-          mkdir build && cd build
-          cmake ..
+          ./configure
       
       - name: Coderrect Scan
         uses: coderrect-inc/coderrect-github-action@v0.4
-        with:
-          buildPath: "build"
