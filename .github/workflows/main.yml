@@ -2,25 +2,23 @@ name: CI
 
 on: [push, pull_request]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
+    # Test on ubuntu
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # This project have submodules to checkout
       - uses: actions/checkout@v2
         with:
           submodules: "true"
 
-      # Runs a single command using the runners shell
+      # Run configuration before `make`
       - name: Pre-build
         run: |
           ./autogen.sh
           ./configure --with-device=ch4:ofi
       
+      # Apply Coderrect Scanner
       - name: Coderrect Scan
         uses: coderrect-inc/coderrect-github-action@v0.4
