@@ -24,4 +24,3 @@ jobs:
         uses: coderrect-inc/coderrect-github-action@main
         with:
           buildCommand: make -sj
-          exit0: true
